@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* 로그인 컨테이너 스타일 */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* 로그인 박스 스타일 */
+        .login-box {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        /* 로고 스타일 */
+        .logo img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        /* 입력 그룹 스타일 */
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 94%; /* 입력 필드가 로그인 박스의 전체 너비를 차지하도록 함 */
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: block;
+            margin: 10px 0; /* 상하 간격을 위해 margin 설정 */
+        }
+
+        /* 로그인 버튼 스타일 */
+        .login-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* 링크 스타일 */
+        .links {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .links a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        /* 언어 선택 드롭다운 스타일 */
+        .language-selector {
+            margin-bottom: 10px;
+            text-align: right;
+            display: flex;
+            align-items: center; /* 이미지와 드롭다운 메뉴를 수평으로 정렬 */
+        }
+
+        .language-selector img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px; /* 이미지와 드롭다운 메뉴 사이의 간격 */
+        }
+
+        .language-selector select {
+            padding: 5px; /* 드롭다운 메뉴의 패딩 */
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- 로그인 컨테이너 -->
+    <div class="login-container">
+        <div class="login-box">
+            <!-- 언어 선택 드롭다운 -->
+            <div class="language-selector">
+                <img src="globe-icon.png" alt="지구본 아이콘" style="width: 20px; height: 20px;">
+                <select id="language" name="language" onchange="changeLanguage(this.value)">
+                    <option value="ko">한국어</option>
+                    <option value="en">English</option>
+                    <option value="cn">中文</option>
+                    <option value="jp">日本語</option>
+                </select>
+            </div>
+
+            <!-- 로고 -->
+            <div class="logo">
+                <img src="logo.png" alt="브랜드 로고">
+            </div>
+            <h2>로그인</h2>
+            <form>
+                <div class="input-group">
+                    <label for="username">아이디</label>
+                    <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required>
+                </div>
+                <button type="submit" class="login-button">로그인</button>
+                <div class="links">
+                    <a href="#">비밀번호를 잊으셨나요?</a>
+                    <a href="#">회원가입</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 언어 변경 기능
+        function changeLanguage(value) {
+            switch (value) {
+                case 'ko':
+                    document.documentElement.lang = 'ko';
+                    break;
+                case 'en':
+                    document.documentElement.lang = 'en';
+                    break;
+                case 'cn':
+                    document.documentElement.lang = 'zh';
+                    break;
+                case 'jp':
+                    document.documentElement.lang = 'ja';
+                    break;
+                default:
+                    document.documentElement.lang = 'en';
+                    break;
+            }
+            // 추가적으로 언어 변경 시 로드해야 하는 로컬라이제이션 리소스 로드 등의 처리를 수행할 수 있습니다.
+        }
+    </script>
+</body>
+
+</html>
